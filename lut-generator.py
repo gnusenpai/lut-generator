@@ -37,7 +37,7 @@ def make_image_strip(samples=16, flipy=False):
         rows = []
         for x in range(0, samples * samples):
             rows.append([
-                int(round((x / samples) * mult)),  # blue
+                int(round(int((x / samples)) * mult)),  # blue
                 int(round(y * mult)),  # green
                 int(round((x % samples) * mult))  # red
                 ])
