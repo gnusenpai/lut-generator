@@ -144,15 +144,9 @@ if __name__ == '__main__':
         sys.exit('--strip and --square cannot be combined')
 
     if args.strip:
-        if args.strip in ['16', '32', '64']:
-            image = make_image_strip(int(args.strip), flipy=args.flipy)
-            write_image(args.path, image)
-        else:
-            sys.exit('Unsupported size: use 16, 32 or 64')
+        image = make_image_strip(int(args.strip), flipy=args.flipy)
+        write_image(args.path, image)
 
     if args.square:
-        if args.square in ['16', '64', '256']:
-            image = make_image_square(int(args.square), flipy=args.flipy)
-            write_image(args.path, image)
-        else:
-            sys.exit('Unsupported size: use 16, 64 or 256')
+        image = make_image_square(int(args.square), flipy=args.flipy)
+        write_image(args.path, image)
