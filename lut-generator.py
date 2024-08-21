@@ -30,7 +30,7 @@ def make_image_strip(samples=16, flipy=False):
         start = 0
         end = samples
         step = 1
-    
+
     # cv2 uses bgr instead of rgb
     p = 0.0
     for y in range(start, end, step):
@@ -48,6 +48,7 @@ def make_image_strip(samples=16, flipy=False):
         sys.stdout.flush()
 
     return image
+
 
 def make_image_square(samples=16, flipy=False):
     """
@@ -74,7 +75,7 @@ def make_image_square(samples=16, flipy=False):
         start = 0
         end = samples * root
         step = 1
-    
+
     # cv2 uses bgr instead of rgb
     p = 0.0
     for y in range(start, end, step):
@@ -96,6 +97,7 @@ def make_image_square(samples=16, flipy=False):
 
     return image
 
+
 def write_image(path, image):
     """
     Write the image to disk.
@@ -109,7 +111,7 @@ def write_image(path, image):
     sys.stdout.flush()
 
     image = np.array(image)
-    
+
     try:
         if cv2.imwrite(path, image):
             print('>> Done!')
