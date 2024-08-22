@@ -18,7 +18,7 @@ def make_image_strip(samples=16, flipy=False):
     :rtype: list of list of [int, int, int]
     """
     s = float(samples)
-    mult = 255.0 / (s - 1)
+    mult = 65535.0 / (s - 1)
 
     image = []
 
@@ -110,7 +110,7 @@ def write_image(path, image):
     sys.stdout.write('\n>> Writing image to disk...\n')
     sys.stdout.flush()
 
-    image = np.array(image)
+    image = np.array(image).astype(np.uint16)
 
     try:
         if cv2.imwrite(path, image):
